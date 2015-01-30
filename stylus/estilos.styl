@@ -1,8 +1,12 @@
+@import "nib"
 @import "normalize.styl"
 @import "fonts.styl"
 
+//vendor-prefixes = webkit o ms moz official  para especificar prefijos propietarios
+
 gris_oscuro = #333333
 gris_claro = #818181
+gris_mas_claro = #f0f0f0
 rojo = #bd255b
 
 
@@ -11,11 +15,13 @@ body
 	font-family 'Varela Round', sans-serif;
 figure
 	margin 0
-	img
-		width 100%
-		vertical-align top
+	img 
+		border 0	
 a 
 	text-decoration none
+ul
+	margin 0
+	padding 0
 .action
 	color white
 	font-size 1.2em
@@ -44,6 +50,12 @@ a
 	margin 0 auto
 .center-text
 	text-align center
+.close-icon
+	position absolute
+	top .5em
+	color gris_claro
+	right .5em
+	font-size 1.2em
 .container
 	font-size 0
 	padding 1.4rem
@@ -55,6 +67,20 @@ a
 		line-height 3.5em
 		margin 0
 		text-align center
+.image
+	img
+		width 100%
+		height auto
+		vertical-align top
+.input 
+	border 1px solid gris_claro
+	height 2.5em
+	border-radius 5px
+	padding 0 1em 0 2em
+.left
+	float left
+.logo
+	display none
 .menu
 	display none
 .name
@@ -66,6 +92,15 @@ a
 .playing
 	&.small
 		width 20em
+.playlist
+	border-left 1px solid gris_claro
+	display none
+	padding 0 2em
+	width 22em
+	.list 
+		list-style none
+	.item
+		padding 1em 0
 .progress
 	margin 1em 0
 	position relative
@@ -85,12 +120,14 @@ a
 		margin 0 auto
 		width 75%
 	.state 
+		animation 20s state infinite linear
 		background rojo
 		border-radius 5px
 		height 5px
 		position relative
 		width 30%
 	.circle
+		animation 1s circle infinite
 		background gris_oscuro
 		border-radius 50%
 		height 10px
@@ -98,10 +135,33 @@ a
 		right -5px
 		top -2.5px
 		width 10px
+@keyframes state
+	0%
+		width 0
+	100%
+		width 100%
+@keyframes circle
+	0%
+		transform: scale(1);
+	100%
+		transform: scale(2);
+		opacity 0
+.right
+	float right
 .right-text
 	text-align right
 .relative 
 	position relative
+.round 
+	border-radius 50%
+	overflow hidden
+.search-icon
+	color gris_claro
+	left .5em
+	position absolute
+	top .8em
+.search
+	margin-right 1em
 .song
 	display inline-block
 	font-size 1rem
@@ -113,5 +173,86 @@ a
 		margin-right 0
 	p 
 		margin .5em 0
+.user
+	width 200px
+.wrap
+	width 1000px
+
+.isotipo
+	width 122px
+.logo
+	background white
+	display none
+	padding 1.3em 0
+	overflow hidden
+.avatar
+	width 38px
+	height 38px	
+	.username
+		color gris_claro
+		position relative
+		top 9px
+		margin-left .5em
+		&:after
+			border-left 7px solid transparent
+			border-right 7px solid transparent
+			border-top 9px solid gris_claro
+			content ""
+			display inline-block
+			margin-left .4em
+
+@media screen and (min-width: 480px)
+	.song
+		&:nth-child(even)
+			margin-right 1em
+	.playing
+		
+		&.medium
+			width auto
+
+@media screen and (min-width: 1000px)
+	body
+		background gris_mas_claro	
+	.button-menu
+		display none
+	.header
+		height auto
+		border none
+		.title
+			display none
 	
+	
+	.menu
+		background gris_mas_claro
+		border-top 1px solid gris_claro
+		display block
+		overflow hidden 
+		.item
+			float left
+			list-style none
+			a
+				border-top 5px solid transparent
+				color gris_oscuro
+				cursor pointer
+				display block
+				padding 1em
+				text-transform uppercase
+				&:hover
+					border-top 5px solid gris_oscuro
+	.music
+		float left
+		width 32.5em		
+	
+	
+			
+	.playing		
+		padding-top 1.3em
+		&.large
+			overflow hidden
+			width 62.5em
+	
+	.logo
+	.playlist
+		display block
+			
 	
